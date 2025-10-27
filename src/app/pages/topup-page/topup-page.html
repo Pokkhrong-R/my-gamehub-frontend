@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="top-up-page-container">
+  <div class="content-wrapper">
+    <h1 class="page-title">
+      <span class="title-bar"></span>เติมเงิน
+    </h1>
+
+    <mat-card class="top-up-card">
+      <mat-card-content>
+        <p class="section-title">จำนวนเงิน</p>
+
+        <div class="preset-buttons-container">
+          <button *ngFor="let amount of presetAmounts"
+                  mat-raised-button
+                  class="amount-button"
+                  (click)="selectAmount(amount)">
+            {{ amount }}
+          </button>
+        </div>
+
+        <div class="custom-amount-container">
+          <mat-form-field class="custom-amount-input" appearance="outline">
+            <input matInput
+                   type="number"
+                   placeholder="ระบุจำนวนเงิน"
+                   [(ngModel)]="selectedAmount">
+          </mat-form-field>
+          <button mat-raised-button class="amount-button top-up-button" (click)="performTopUp()">
+            เติมเงิน
+          </button>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

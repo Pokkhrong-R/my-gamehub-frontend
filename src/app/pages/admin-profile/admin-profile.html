@@ -1,0 +1,39 @@
+
+<app-header></app-header>
+<div class="profile-container" *ngIf="errorMessage">
+    <p>{{errorMessage}}...</p>
+</div>
+<div class="profile-container" *ngIf="userGetRes && !isLoading" >
+  <div class="base-container">
+    <div class="set-profileBox">
+      <div class="frame-profile">
+        <div class="set-circle">
+          <img [src]="apiUrl + '/uploads/'  +userGetRes.profile_image" class="set-image" />
+        </div>
+      </div>
+     
+      <p class="set-name">{{userGetRes.username}}</p>
+      <p class="set-email">{{userGetRes.email}}</p>
+  
+      <div>
+        <div class="set-menu-profile">
+          
+          <div>
+            
+          </div>
+          
+          <a [routerLink]="['/admin/edit-admin-profile',userGetRes.user_id]" class="set-menu-detail">
+           <mat-icon>edit</mat-icon>
+            <p>แก้ไขโปรไฟล์</p>
+          </a>
+          <hr class="set-hr">
+        </div>
+        <div class="center-btn">
+           <button class="set-logout-btn" (click)="onLogout()">ออกจากระบบ</button>
+        </div>
+       
+      </div>
+    </div>
+    
+  </div>
+</div>

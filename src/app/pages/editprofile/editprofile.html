@@ -1,0 +1,119 @@
+<header></header>
+<app-header></app-header>
+<div class="profile-container">
+  <div class="base-container">
+    <div class="set-profileBox" *ngIf="userGet && !isLoading">
+      <div class="frame-profile">
+        <div class="set-circle">
+          <img [src]="userGet.profile_image" class="set-image" />
+        </div>
+      </div>
+
+      <p class="set-name">{{ userGet.username }}</p>
+      <p class="set-email">{{ userGet.email }}</p>
+      <div class="set-moneyBox">
+        <p class="set-textmoney">ยอดคงเหลือ</p>
+        <p class="set-number">{{ userGet.wallet_balance }}</p>
+      </div>
+      <div class="set-menu-profile">
+        <a [routerLink]="['/user/profile', userGet.user_id]" class="set-menu-detail">
+          <span class="material-symbols-outlined"></span>
+          <!-- sports_esports -->
+          <p>คลังเกมของฉัน</p>
+        </a>
+        <hr class="set-hr" />
+        <div></div>
+        <a [routerLink]="['/user/transpage', userGet.user_id]" class="set-menu-detail">
+          <span class="material-symbols-outlined"></span>
+          <!--compare_arrows-->
+          <p>ประวัติการทำรายการ</p>
+        </a>
+        <hr class="set-hr" />
+        <a [routerLink]="['/user/edit-profile', userGet.user_id]" class="set-menu-detail">
+          <span class="material-symbols-outlined"></span>
+          <!-- edit -->
+          <p>แก้ไขโปรไฟล์</p>
+        </a>
+        <hr class="set-hr" />
+      </div>
+      <div class="center-btn">
+        <button class="set-logout-btn" (click)="onLogout()">ออกจากระบบ</button>
+      </div>
+    </div>
+  </div>
+  <!-- ////////////////////////////////// -->
+  <div class="set-editBox">
+    <div class="set-editColumn">
+      <div class="set-edit-title">
+        <h3>| แก้ไขโปรไฟล์</h3>
+      </div>
+      <div class="set-editRow">
+        <div class="image-sec">
+          <div class="edit-Image">
+            <div class="edit-frame">
+              <img [src]="profileImage" class="edit-image" />
+            </div>
+          </div>
+          <label class="upload-btn">
+            <mat-icon>add</mat-icon>
+            <input type="file" (change)="onFileSelected($event)" hidden />
+          </label>
+        </div>
+
+        <div class="set-fieldBox">
+          <!-- --------------------------------------------- -->
+          <div class="set-fill">
+            <mat-label>ชื่อ</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput [(ngModel)]="username" placeholder="{{ userGet?.username }}" />
+            </mat-form-field>
+          </div>
+          <!-- --------------------------------------------- -->
+
+          <!-- --------------------------------------------- -->
+          <div class="set-fill">
+            <mat-label>อีเมล</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput [(ngModel)]="email" placeholder="{{ userGet?.email }}" />
+            </mat-form-field>
+          </div>
+          <!-- --------------------------------------------- -->
+
+          <!-- --------------------------------------------- -->
+          <div class="set-fill">
+            <mat-label>รหัสผ่าน</mat-label>
+            <mat-form-field appearance="outline">
+              <input matInput [(ngModel)]="newPassword" placeholder="*********" type="password" />
+            </mat-form-field>
+          </div>
+          <!-- --------------------------------------------- -->
+          <!-- --------------------------------------------- -->
+          <div class="set-fill">
+            <mat-label>ยืนยันรหัสผ่านใหม่</mat-label>
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                [(ngModel)]="confirmNewPassword"
+                name="confirmNewPassword"
+                placeholder="กรุณากรอกรหัสผ่าน"
+                type="password"
+              />
+            </mat-form-field>
+          </div>
+          <!-- --------------------------------------------- -->
+        </div>
+      </div>
+      <div class="set-btn" *ngIf="userGet">
+        <div>
+          <a [routerLink]="['/user/profile', userGet.user_id]">
+            <button class="set-cancel-btn" (click)="cancel()">ยกเลิก</button>
+          </a>
+        </div>
+        <div>
+          <button class="set-save-btn" (click)="saveProfile()">บันทึก</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--base-->
+</div>

@@ -1,0 +1,57 @@
+<app-header></app-header>
+<body class="background">
+  <section class="total">
+    <h2>ยอดเงินรวม</h2>
+    <p>...</p>
+  </section>
+
+  <section class="topup">
+    <h3>จำนวนการเติมเงิน</h3>
+    <div class="buttons">
+      <button
+        *ngFor="let amount of presetAmounts"
+        mat-raised-button
+        class="amount-button"
+        (click)="selectAmount(amount)"
+        [disabled]="isLoading"
+      >
+        {{ amount }}
+      </button>
+    </div>
+  </section>
+
+  <section class="discount">
+    <div class="set-discount">
+      <label
+        >ชื่อโค้ดส่วนลด
+        <input matInput [(ngModel)]="discountCode" type="text" [disabled]="isLoading" />
+      </label>
+    </div>
+
+    <div class="set-discount">
+      <label
+        >กำหนดส่วนลด
+        <input matInput [(ngModel)]="selectedAmount" type="text" [disabled]="isLoading" />
+      </label>
+    </div>
+
+    <div class="set-discount">
+      <label
+        >จำนวนผู้ใช้สูงสุด
+        <input type="number" placeholder="1" [(ngModel)]="discountMax" [disabled]="isLoading" />
+      </label>
+    </div>
+
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    <button class="create" (click)="onCreate()" [disabled]="isLoading">
+      {{ isLoading ? 'กำลังสร้าง...' : 'สร้างส่วนลด' }}
+    </button>
+
+    <a class="view-all" href="/admin/show-all-discount">ดูส่วนลดทั้งหมด</a>
+  </section>
+</body>

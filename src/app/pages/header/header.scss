@@ -1,0 +1,151 @@
+
+// .app-header {
+//   display: flex; /* เปิดใช้งาน Flexbox */
+//   align-items: center; /* จัดองค์ประกอบทั้งหมดให้อยู่กึ่งกลางในแนวตั้ง */
+//   justify-content: space-between; /* จัดให้มีระยะห่างระหว่างองค์ประกอบ */
+//   padding: 34 24px; /* เพิ่มช่องว่างด้านซ้าย-ขวา */
+//   height: 64px; /* กำหนดความสูงของ header */
+//   background-color: #f5f5f5; /* สีพื้นหลัง */
+//   border-bottom: 1px solid #ddd;
+// }
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #121212;
+  color: white;
+  width: 100vw;
+  height: 80px;
+  // gap: 10px;
+  margin-bottom:5vh;
+  font-family: "Inter", "Noto Sans Thai", sans-serif;
+}
+.example-spacer {
+  // flex: 1 1 auto;
+}
+.set-search{
+  display: flex;
+  margin-right: 200px;
+  // margin-left: 10px;
+
+  // background-color: darkgoldenrod;
+}
+.search {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search input {
+  width: 300px;
+  height: 30px;
+  border-radius: 20px;
+  border: 2px solid #2ecc71;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.search-btn {
+  background: #2ecc71;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.set-search {
+  position: relative;
+}
+
+
+
+.search-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 250px;
+  max-height: 500px;
+  background: #121212;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  z-index: 500;
+}
+
+.popup-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.popup-item:hover {
+  background: #2b2b2b;
+  border: 1px solid #2ecc71;
+}
+
+.popup-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.set-menubar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;      
+  justify-content: flex-end; 
+  width: 400px;               
+  padding: 0 10px;   
+  gap: 10px;     
+  font-size: 20px;
+  margin-left: 10px;
+  // margin-right: 60px;
+  // background-color: rgb(184, 11, 77);
+}
+.set-menubar a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  margin: 0 10px; 
+}
+
+.set-menubar a:hover{
+  color: #6F9A37;
+  text-decoration: underline;
+}
+
+.frame-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.set-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;          
+  overflow: hidden;          
+  background-color: #801616; 
+   border: 2px solid #6F9A37; 
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.set-image {
+  width: 100%;
+  height: 100%;
+  background-color: khaki;
+  object-fit: cover;
+}

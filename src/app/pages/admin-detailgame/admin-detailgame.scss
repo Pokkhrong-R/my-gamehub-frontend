@@ -1,0 +1,122 @@
+/* General Body Styles */
+body {
+    background-color: #000;
+    color: #f0f0f0;
+    font-family: 'Noto Sans Thai', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+
+/* Main Product Container */
+.product-container {
+    width: 100%;
+    max-width: 1000px;
+//     background-color: darkcyan;
+}
+
+/* Product Title */
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 16px;
+    margin: 0 0 32px 0;
+}
+
+/* Main content flex container (image + details) */
+.main-content {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+//     background-color: saddlebrown;
+}
+
+/* Product Image */
+.product-image {
+    flex: 0 0 400px; 
+//     background-color: darkgoldenrod;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    height: 250px;
+}
+
+/* Product Details Box */
+.product-details {
+    flex: 1;
+    border: 2px solid #121212;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+//     gap: 10%;
+    align-items: flex-start;
+    height: 200px;
+    max-width: 100%;
+//     background-color: violet;
+}
+.product-details-column{
+    display: flex;
+    flex-direction: column;
+//     background-color: darkgrey;
+    width: 500px;
+}
+
+.product-details p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+//     background-color: firebrick;
+}
+
+.product-details p strong {
+    font-weight: bolder;
+    font-size: 20px;
+    margin-right: 8px;
+    color: #6F9A37;
+//     background-color: forestgreen;
+}
+
+.product-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #ccc;
+//     background-color: firebrick;
+}
+.set-more-btn{
+   background-color: transparent; /* ทำให้พื้นหลังโปร่งใส */
+  border: none;                 /* ลบเส้นขอบ */
+  box-shadow: none;             /* ลบเงา */
+  padding: 0;                   /* อาจจะต้องปรับ padding เพื่อให้ไอคอนอยู่ตรงกลางพอดี */
+  min-width: 0;                 /* ป้องกันไม่ให้ปุ่มมีความกว้างขั้นต่ำ */
+  cursor: pointer;    
+}
+.transparent-button:hover {
+  background-color: rgba(0, 0, 0, 0.04); /* สีเทาจางๆ แบบ Material Design */
+}
+
+mat-icon{
+     color: white;
+}
+mat-icon:hover{
+     color: #726d6d;
+}
+.product-description .description-title {
+    color: #6F9A37;
+    font-weight: 700;
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.product-description p {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+}

@@ -1,0 +1,225 @@
+.profile-container{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content:start;
+     width: 1280px;
+     height: 700px;
+     margin: 30px auto;
+    //  background-color: darkcyan;
+}
+.base-container{
+     display: flex;
+     flex-direction: row;
+     gap: 30px;
+     align-items: center;
+     justify-content:center;
+     width: 1150px;
+     height: 600px;
+     border-radius: 10px;
+     padding: 20px 20px 20px 20px;
+     background-color: #1E1E1E;
+}
+.set-profileBox{
+     display: flex;
+     flex-direction: column;
+     justify-content: start;
+     align-items: center;
+    padding-top: 30px;
+     width: 350px;
+     height: 580px;
+     border-radius: 10px;
+     box-shadow: 5px 5px 5px #1e1e1e;
+     background-color: #121212;
+}
+.edit-profile{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 210px;
+  left: 210px;
+  background-color: #262626;
+  color: white;
+  font-size: 14px;
+  padding: 6px;
+  border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.edit-profile:hover {
+  background-color: #1e1e1e;
+}
+.set-name{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+.set-email{
+   margin-bottom: 20px;
+  color: #928C8C;
+  font-size: 18px;
+  // font-weight: bold;
+}
+.set-moneyBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ width: 220px;
+ height: 80px;
+ margin-bottom:5%;
+ border-radius: 10px;
+ background-color: #1E1E1E;
+}
+.set-textmoney{
+  color: #6F9A37;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  font-size: 18px;
+  font-weight: bold;
+  // background-color: darkblue;
+}
+.set-number{
+  // margin-bottom: 10px;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  // background-color: chartreuse;
+}
+.center-btn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.set-logout-btn{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+     width: 150px;
+     height: 35px;
+     background-color: #FF3B30;
+     color: white;
+     font-size: 16px;
+     font-weight: bold;
+     font-family: "Inter", sans-serif;
+     border-radius: 30px;
+     border: none;
+    //  margin-top: 20%;
+     cursor: pointer;
+     transition: all 0.1s ease;
+}
+.set-logout-btn:hover{
+     background-color: #ee2e24;
+     box-shadow: 0 0 10px #FF3B30;
+     color: #ffffff;
+     transform: scale(1.05);  
+
+}
+.frame-profile {
+  display: flex;
+  align-items: center;
+  justify-content:  center;
+  background-color: #6F9A37;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.set-circle {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;          
+  overflow: hidden;          
+  background-color: #444; 
+
+}
+
+.set-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.set-menu-profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: auto;
+  margin-bottom:10%;
+  // background-color: yellow
+}
+.set-menu-detail{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ width: 100%;
+ gap: 8px;
+ cursor: pointer;
+ font-size: 18px;
+ color: #262626;
+//  background-color: rebeccapurple;
+}
+.set-menu-detail p{
+//  background-color: olive;
+ width: 200px;
+
+}
+.set-menu-detail .material-symbols-outlined {
+  font-size: 20px;
+}
+.set-hr{
+   border: none;             
+  height: 1.5px;             
+  background-color: #262626; 
+  margin-right: 50%;       
+  width: 80%;                
+  margin-bottom: 0;
+  margin-top: 0;
+  transition: all 0.1s ease;
+   
+}
+.set-menu-detail:hover {
+  color: #D9d9d9;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.set-menu-detail:hover + .set-hr {
+  background-color: #D9d9d9;
+  box-shadow: 0 0 10px #D9d9d9;
+  transition: all 0.3s ease;
+}
+.set-column{
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  gap: 20px;
+
+}
+.set-gameBox{
+     display: flex;
+     flex-direction: column;
+     justify-content: start;
+     align-items: center;
+    padding-top: 30px;
+     width: 100%;
+     height: 180px;
+     border-radius: 10px;
+     box-shadow: 5px 5px 5px #1e1e1e;
+     background-color: #121212;
+}
+.set-transBox{
+     display: flex;
+     flex-direction: column;
+     justify-content: start;
+     align-items: center;
+    padding-top: 30px;
+     width: 100%;
+     height: 350px;
+     border-radius: 10px;
+     box-shadow: 5px 5px 5px #1e1e1e;
+     background-color: #121212;
+}

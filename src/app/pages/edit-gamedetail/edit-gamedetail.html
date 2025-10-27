@@ -1,0 +1,84 @@
+<app-header></app-header>
+<div class="main-container">
+  <div class="container">
+    <h2>แก้ไขเกมใหม่</h2>
+    <div class="set-column-fromBox">
+      <div class="form-box">
+        <!-- Upload Image -->
+        <div class="upload-section">
+          <div class="upload-box">
+            <img [src]="displayImage" alt="preview" />
+          </div>
+          <label class="upload-btn"
+            >เลือกรูปภาพ
+            <input type="file" (change)="onFileSelected($event)" hidden />
+          </label>
+        </div>
+
+        <!-- Form -->
+        <div class="form-section">
+         
+            <mat-label>ชื่อเกม</mat-label>
+            <input
+              matInput
+              [(ngModel)]="name"
+              name="name"
+              placeholder="กรุณากรอกชื่อเกม"
+              style="background-color: antiquewhite"
+            />
+         
+
+          <div class="row">
+            <div class="col">
+          
+                <mat-label>ราคา</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="price"
+                  name="price"
+                  type="number"
+                  placeholder="กรุณากรอกราคา"
+                  style="background-color: antiquewhite"
+                />
+           
+            </div>
+            <div class="col">
+          
+                <mat-label>เลือกประเภท</mat-label>
+                <mat-select [(ngModel)]="genres" name="genres"  placeholder="{{game?.genres}}">
+                  <mat-option *ngFor="let genre of genresOption" [value]="genre">{{ genre }}</mat-option>
+                </mat-select>
+            
+            </div>
+          </div>
+        
+            <mat-label>รายละเอียด</mat-label>
+            <textarea
+              matInput
+              [(ngModel)]="detail"
+              name="detail"
+              placeholder="กรุณากรอกรายละเอียดเกม"
+              rows="5"
+              style="background-color: antiquewhite"
+            ></textarea>
+         
+        </div>
+       
+    
+      </div> <!--frame box-->
+
+    
+    </div> <!--set upload sec & field sec-->
+       <!-- Buttons -->
+        <div class="set-btn">
+          <div>
+            <a routerLink="/admin/home">
+              <button class="set-cancel-btn" (click)="cancel()">ยกเลิก</button>
+            </a>
+          </div>
+          <div>
+            <button class="set-save-btn" (click)="save()">บันทึก</button>
+          </div>
+        </div>
+  </div>
+</div>

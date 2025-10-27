@@ -1,0 +1,29 @@
+<app-header></app-header>
+<body>
+  <!-- Header -->
+  <section class="header">
+    <h2>ประวัติการทำธุรกรรมของผู้ใช้</h2>
+  </section>
+
+  <!-- Search -->
+<section class="search">
+  <input
+    type="text"
+    #keyword
+    placeholder="ค้นหาผู้ใช้..."
+    (input)="search(keyword.value)"  />
+  <button class="search-btn" (click)="search(keyword.value)">ค้นหา</button>  <!-- 🔹 กดปุ่มก็ได้ -->
+</section>
+
+
+<ng-container *ngFor="let result of filterUser" >
+    <!-- User Card -->
+  <section class="user-card" *ngIf="result.user_id !== 1">
+    <img src="{{apiUrl + '/uploads/' + result.profile_image}}" alt="{{result.profile_image}}" class="avatar" />
+    <span class="username">{{result.username}}</span>
+    <a [routerLink]="['/admin/user-profile',result.user_id]"  style="text-decoration: none;">
+     <button class="history-btn" >ดูประวัติธุรกรรม</button>
+    </a>
+  </section>
+</ng-container>
+</body>

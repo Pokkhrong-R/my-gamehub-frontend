@@ -1,0 +1,60 @@
+<app-header></app-header>
+<body>
+  <div class="container">
+
+    <!-- ส่วนข้อมูลผู้ใช้ -->
+    <div class="user-header"  *ngIf="user">
+      <div class="user-info">
+        <img src="{{apiUrl+'/uploads/'+ user.profile_image}}" alt="{{user.profile_image}}" class="avatar">
+        <h2>{{user.username}}</h2>
+      </div>
+      <div class="balance-box">
+        <span>ยอดเงินคงเหลือ: {{user.wallet_balance}}</span>
+      </div>
+    </div>
+
+    <!-- ส่วนประวัติการทำรายการ -->
+    <div class="transaction-box">
+  <h3>| ประวัติการทำรายการ</h3>
+  
+  <!-- ปุ่ม filter -->
+  <div class="filter-tabs">
+    <button 
+      [class.active]="selectedFilter === 'all'" 
+      (click)="setFilter('all')">
+      รายการทั้งหมด
+    </button>
+
+    <button 
+      [class.active]="selectedFilter === 'deposit'" 
+      (click)="setFilter('deposit')">
+      รายการเติมเงิน
+    </button>
+
+    <button 
+      [class.active]="selectedFilter === 'purchase'" 
+      (click)="setFilter('purchase')">
+      รายการซื้อเกม
+    </button>
+  </div>
+
+  <!-- รายการธุรกรรม -->
+  <div *ngIf="filteredTransactions.length > 0; else noData">
+    <div class="transaction-list" *ngFor="let t of filteredTransactions">
+      <div class="transaction-item">
+        <div>
+          <p class="game-title">{{t.statements}}</p>
+          <span class="date">{{ t.trans_date | date:'dd/MM/yyyy' }}</span>
+        </div>
+        <span class="amount"
+              [ngClass]="{'plus': t.type === 1,'minus': t.type === 0}">
+          {{ t.type === 1 ? '+' : '-' }}{{ t.price | number:'1.2-2' }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <p>ไม่มีรายการธุรกรรม</p>
+  </ng-template>
+</div>

@@ -1,0 +1,47 @@
+<app-header></app-header>
+<body class="background-list">
+  <section class="discount-list-container">
+    <h2>รายการส่วนลดทั้งหมด</h2>
+
+    <div *ngIf="isLoading" class="loading-spinner">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+      <p>กำลังโหลดข้อมูล...</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="!isLoading && !errorMessage">
+      <div *ngIf="discounts.length === 0" class="no-data">
+        <p>ไม่พบข้อมูลส่วนลด</p>
+      </div>
+
+      <div class="cards-wrapper">
+        <mat-card *ngFor="let discount of discounts" class="discount-card" style="margin-bottom: 16px;">
+          <mat-card-header>
+            <mat-card-title>{{ discount.discount_code }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              มูลค่า: <strong>{{ discount.discount_price | number }} บาท</strong>
+            </p>
+            <p>จำนวนสิทธิ์สูงสุด: {{ discount.max_quantity | number }}</p>
+          </mat-card-content>
+
+          <mat-card-actions align="end">
+            <a class="edit-button" mat-button [routerLink]="['/admin/edit-discount', discount.discount_id]"> แก้ไข </a>
+
+            <button class="delete-button"
+              mat-button
+              color="warn"
+              (click)="onDelete(discount.discount_id, discount.discount_code)"
+            >
+              ลบ
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+</body>

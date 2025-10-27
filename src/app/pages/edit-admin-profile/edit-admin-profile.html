@@ -1,0 +1,93 @@
+
+<app-header></app-header>
+<div class="profile-container" >
+  <div class="base-container">
+    <div class="set-profileBox"  *ngIf="userGet && !isLoading">
+      <div class="frame-profile">
+        <div class="set-circle">
+            <img [src]="apiUrl + '/uploads/' + profileImage" class="set-image" />
+        </div>
+      </div>
+
+      <p class="set-name">{{userGet.username}}</p>
+      <p class="set-email">({{userGet.email}})</p>
+      <!-- <div class="set-moneyBox">
+        <p class="set-textmoney">ยอดคงเหลือ</p>
+        <p class="set-number">{{userGet.wallet_balance}}</p>
+      </div> -->
+      <div>
+        <button class="set-logout-btn">ออกจากระบบ</button>
+      </div>
+    </div>
+    <!-- ////////////////////////////////// -->
+    <div class="set-editBox">
+      <div class="set-editColumn">
+        <div class="set-edit-title">
+          <h3>| แก้ไขโปรไฟล์</h3>
+        </div>
+        <div class="set-editRow">
+          <div class="image-sec">
+            <div class="edit-Image">
+              <div class="edit-frame">
+                <img [src]="apiUrl + '/uploads/' + profileImage" class="edit-image" />
+              </div>
+            </div>
+               <label class="upload-btn">
+      <mat-icon>add</mat-icon>
+      <input type="file" (change)="onFileSelected($event)" hidden />
+    </label>
+          </div>
+
+          <div class="set-fieldBox">
+            <!-- --------------------------------------------- -->
+            <div class="set-fill">
+              <mat-label>ชื่อ</mat-label>
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="กรุณากรอกชื่อของคุณ" />
+              </mat-form-field>
+            </div>
+            <!-- --------------------------------------------- -->
+
+            <!-- --------------------------------------------- -->
+            <div class="set-fill">
+              <mat-label>อีเมล</mat-label>
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="กรุณากรอกอีเมลของคุณ" />
+              </mat-form-field>
+            </div>
+            <!-- --------------------------------------------- -->
+
+            <!-- --------------------------------------------- -->
+            <div class="set-fill">
+              <mat-label>รหัสผ่าน</mat-label>
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="กรุณากรอกรหัสผ่าน" />
+              </mat-form-field>
+            </div>
+            <!-- --------------------------------------------- -->
+            <!-- --------------------------------------------- -->
+            <div class="set-fill">
+              <mat-label>ยืนยันรหัสผ่านใหม่</mat-label>
+              <mat-form-field appearance="outline">
+                <input matInput placeholder="กรุณากรอกรหัสผ่าน" />
+              </mat-form-field>
+            </div>
+            <!-- --------------------------------------------- -->
+          </div>
+
+          
+        </div>
+          <div class="set-btn">
+        <div>
+          <button class="set-cancel-btn">ยกเลิก</button>
+        </div>
+        <div>
+          <button class="set-save-btn"(click)="saveProfile()">บันทึก</button>
+        </div>
+      </div>
+      </div>
+
+    
+    </div>
+  </div>
+</div>

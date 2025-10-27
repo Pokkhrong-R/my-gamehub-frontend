@@ -1,0 +1,110 @@
+// ตัวแปรสีเพื่อให้แก้ไขง่าย
+$primary-green: #6faa48;
+$background-dark: #121212;
+$card-dark: #2a2a2a;
+$text-light: #ffffff;
+$text-muted: #c0c0c0;
+$input-bg: #3c3c3c;
+
+// --- Container หลักของหน้า ---
+.top-up-page-container {
+  background-color: $background-dark;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; // จัดให้อยู่ด้านบน
+  padding-top: 5rem;
+  font-family: 'Kanit', sans-serif; // แนะนำให้ใช้ Font ที่รองรับภาษาไทย
+}
+
+.content-wrapper {
+  width: clamp(320px, 90%, 800px); // ทำให้ responsive
+}
+
+// --- Title ของหน้า ---
+.page-title {
+  color: $text-light;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+
+  .title-bar {
+    display: inline-block;
+    width: 6px;
+    height: 1.8rem;
+    background-color: $primary-green;
+    margin-right: 1rem;
+    border-radius: 3px;
+  }
+}
+
+// --- Card เติมเงิน ---
+.top-up-card {
+  background-color: $card-dark;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.section-title {
+  color: $text-muted;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+// --- กลุ่มปุ่มจำนวนเงิน ---
+.preset-buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+// --- ปุ่มทั้งหมด ---
+.amount-button {
+  background-color: $primary-green !important;
+  color: $text-light !important;
+  border-radius: 8px;
+  min-width: 80px;
+  padding: 0 1.5rem;
+  height: 48px;
+  font-size: 1rem;
+}
+
+// --- ส่วน Input จำนวนเงินเอง ---
+.custom-amount-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.custom-amount-input {
+  // ทำให้ input field กว้างขึ้น
+  width: 200px;
+  background-color: #ffffff;
+  height: 55px;
+  border-radius: 5px;
+
+  // Override สไตล์ของ Angular Material
+  --mdc-outlined-text-field-container-shape: 8px; // boeder-radius
+  --mat-form-field-container-text-color: #{$text-light};
+  --mdc-outlined-text-field-input-text-color: #{$text-light};
+  --mdc-text-field-filled-container-color: #{$input-bg};
+
+  .mat-mdc-form-field-flex {
+    background-color: $input-bg !important;
+  }
+
+  input {
+    text-align: center; // ทำให้ตัวเลขอยู่ตรงกลาง
+    font-size: 1.1rem;
+  }
+}
+
+// ปุ่ม "เติมเงิน" สุดท้าย
+.top-up-button {
+  height: 56px; // ทำให้สูงเท่า input field
+}

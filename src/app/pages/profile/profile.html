@@ -1,0 +1,91 @@
+<header>
+   <link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=edit"
+  />
+</header>
+<app-header></app-header>
+<div class="profile-container" *ngIf="errorMessage">
+    <p>{{errorMessage}}...</p>
+</div>
+<div class="profile-container" *ngIf="userGetRes && !isLoading" >
+  <div class="base-container">
+    <div class="set-profileBox">
+      <div class="frame-profile">
+        <div class="set-circle">
+          <img [src]="apiUrl+'/uploads/'+userGetRes.profile_image" class="set-image" />
+        </div>
+      </div>
+      <a [routerLink]="['/user/edit-profile',userGetRes.user_id]" class="edit-profile">
+        <span
+          class="material-symbols-outlined"
+         
+        >
+          edit
+        </span>
+      </a>
+
+      <p class="set-name">{{userGetRes.username}}</p>
+      <p class="set-email">{{userGetRes.email}}</p>
+      <div class="set-moneyBox">
+        <p class="set-textmoney">ยอดคงเหลือ</p>
+        <p class="set-number">{{userGetRes.wallet_balance}}</p>
+      </div>
+      <div>
+        <div class="set-menu-profile">
+          <a [routerLink]="['/user/profile',userGetRes.user_id]" class="set-menu-detail">
+            <span class="material-symbols-outlined"></span>
+            <!-- sports_esports -->
+            <p>คลังเกมของฉัน</p>
+          </a>
+          <hr class="set-hr">
+          <div>
+            
+          </div>
+          <a [routerLink]="['/user/transpage',userGetRes.user_id]" class="set-menu-detail">
+           <span class="material-symbols-outlined"></span> <!--compare_arrows-->
+            <p >ประวัติการทำรายการ</p>
+          </a>
+            <hr class="set-hr">
+          <a [routerLink]="['/user/edit-profile',userGetRes.user_id]" class="set-menu-detail">
+            <span class="material-symbols-outlined"></span>
+            <!-- edit -->
+            <p>แก้ไขโปรไฟล์</p>
+          </a>
+          <hr class="set-hr">
+        </div>
+        <div class="center-btn">
+           <button class="set-logout-btn" (click)="onLogout()">ออกจากระบบ</button>
+        </div>
+       
+      </div>
+    </div>
+    <div class="set-column">
+      <div class="set-gameBox" *ngFor="let mygame of games">
+         <div class="set-title-mygame"><p>| คลังเกมของฉัน <span>(2)</span></p></div>
+         <div class="set-grid">
+
+
+      <div class="set-frame">
+      
+
+        <div class="set-frameInside">
+          <div class="set-box">
+            <div class="set-detailImage">
+              <img [src]="apiUrl + '/uploads/'+ mygame.image || 'not fond image'" alt="roblox" class="set-gameImage" />
+              <a [routerLink]="['/user/mygame-detail',mygame.game_id]">detail</a>
+            </div>
+           <p>{{mygame.name}}</p>
+          </div>
+
+          
+        </div>
+      </div>
+      </div>
+       
+    </div>
+  </div>
+</div>

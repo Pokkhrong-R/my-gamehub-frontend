@@ -1,0 +1,167 @@
+.container{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+width: 1270px; //use all page
+height: auto;
+margin: 0px;
+// background-color: darkcyan;
+}
+.set-showbar{
+ display: flex;
+ width: 1234px;
+ height: 505px;
+ border-radius: 10px;
+ 
+ background-color: gray;
+}
+.set-image{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     border-radius: 10px;
+}
+.set-topsale{
+     display: flex;
+     flex-direction: row;
+     width: 1234px;
+     height: 234px;
+     border-radius: 10px;
+     margin-top: 30px;
+     margin-bottom: 30px;
+     background-color: #121212;
+}
+.set-boxgameTopsale{
+     display: flex;
+     flex-direction: row;
+     align-items: start;
+     justify-content: center;
+     height: 234px;
+     gap: 70px;
+     margin-top: 50px;
+     margin-bottom: 50px;
+     padding-top: 20px;
+     // background-color: hotpink;
+}
+.set-topsaleText{
+     display: flex;
+     color: white;
+     margin-left: 30px;
+    
+     
+
+}
+.set-topgame{
+     display: flex;
+     flex-direction: column;
+     // justify-content: start;
+     width: 124px;
+     height: 170px;
+     cursor: pointer;
+     // background-color: rgb(57, 18, 142);
+}
+.set-gamecover{
+     width: 100%;
+     height: 100%;
+     object-fit:cover;   
+     overflow: hidden;  
+     border-radius: 10px;
+}
+.set-GameName{
+     display: flex;
+     justify-content: center;
+     width: 100%;
+     color: white;
+     font-weight: 600px;
+     white-space: nowrap;      
+     // overflow: hidden;        
+     // text-overflow: ellipsis;  
+     // background-color: chocolate;
+
+}
+
+//gamehub
+.set-game-container{
+     display: flex;
+     flex-direction: column;
+     width: 1240px;
+     background-color: #121212;
+     border-radius: 10px;
+}
+.set-gameTitle{
+     display: flex;
+     color: white;
+     margin-left: 30px;
+     padding-bottom: 20px;
+}
+
+.set-grid{
+     // display: grid;
+     // grid-template-columns: repeat(3,200px); 
+      gap: 50px;
+     // background-color: #4b0808;
+     display: flex;
+     flex-wrap: wrap;        
+     justify-content: space-around;
+      padding: 50px;
+}
+
+.set-box {
+  column-span: 3;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  border-radius: 8px;
+  flex-direction: column;
+  cursor: pointer;
+//     background: #f32198;
+}
+.set-frame{
+
+     display: flex;
+     flex-direction: column; 
+     align-items: center;
+     width: 90%;
+     height: 250px;    
+     gap: 100px;
+     margin-top: 20px;
+     // border: 2px solid #262626;
+     border-radius: 10px;
+     // background-color: yellow;
+  
+}
+.set-frame:hover{
+     background-color: #000000;
+     
+}
+// .set-text{
+//      display: flex;
+//      margin-left: 50px;
+//      font-size: 18px;
+     
+//      // background-color: darkcyan;
+// }
+.set-frameInside{
+     display: grid;
+     grid-template-columns: repeat(3,200px); 
+     justify-content: space-around;
+     width: 90%;
+     // background-color: rgb(21, 12, 57);
+      
+}
+.set-detailImage{
+     display: flex;
+     flex-direction: column;
+     width: 150px;
+     height: 150px;
+     overflow: hidden;
+     border-radius: 10px;
+     // background-color: darkolivegreen;
+}
+.set-gameImage{
+     width: 100%;
+     height: 100%;
+     object-fit: cover; 
+  }
+  

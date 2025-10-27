@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="regis-container">
+  <div class="set-register">
+    <h4 class="set-registerTitle">สมัครสมาชิก</h4>
+    <div class="set-fieldBox">
+      <!-- --------------------------------------------- -->
+      <div class="set-fill">
+        <mat-label>ชื่อ</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="username"   placeholder="กรุณากรอกชื่อของคุณ" />
+        </mat-form-field>
+      </div>
+      <!-- --------------------------------------------- -->
+
+      <!-- --------------------------------------------- -->
+      <div class="set-fill">
+        <mat-label>อีเมล</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="email" placeholder="กรุณากรอกอีเมลของคุณ" />
+        </mat-form-field>
+      </div>
+      <!-- --------------------------------------------- -->
+
+      <!-- --------------------------------------------- -->
+      <div class="set-fill">
+        <mat-label>รหัสผ่าน</mat-label>
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="password" placeholder="กรุณากรอกรหัสผ่าน" type="password" />
+        </mat-form-field>
+      </div>
+      <!-- --------------------------------------------- -->
+      <p class="set-forget-text">ลืมรหัสผ่าน?</p>
+    </div>
+
+    <div class="example-button-row">
+      <button   class="set-regisButton" (click)="onSingUp()">สมัครสมาชิก</button>
+    </div>
+     <div class="set-asktext">
+          <p>มีบัญชีแล้ว?</p> 
+          <a class="set-linkLogin" routerLink="/loginpage">เข้าสู่ระบบ</a>
+     </div>
+  </div>
+</div>

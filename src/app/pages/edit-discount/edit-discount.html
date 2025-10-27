@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="container">
+  <h2>แก้ไขส่วนลด</h2>
+
+  <div *ngIf="isLoading" style="text-align: center; padding: 2rem;">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    <p>กำลังโหลดข้อมูล...</p>
+  </div>
+
+  <div *ngIf="errorMessage && !isLoading" class="error-message">
+    {{ errorMessage }}
+    <br>
+    <a href="/admin/show-all-discount">กลับไปหน้ารายการ</a>
+  </div>
+
+  <mat-card *ngIf="!isLoading && discount">
+    <mat-card-content class="cards-wrapper">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>โค้ดส่วนลด</mat-label>
+        <input matInput [(ngModel)]="discount.discount_code">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>มูลค่าส่วนลด (บาท)</mat-label>
+        <input matInput type="number" [(ngModel)]="discount.discount_price">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>จำนวนสิทธิ์สูงสุด</mat-label>
+        <input matInput type="number" [(ngModel)]="discount.max_quantity">
+      </mat-form-field>
+
+    </mat-card-content>
+    <mat-card-actions align="end" class="cards-wrapper">
+      <button mat-button [routerLink]="'/admin/show-all-discount'">ยกเลิก</button>
+      
+      <button mat-raised-button color="primary" (click)="onUpdate()">
+        บันทึกการเปลี่ยนแปลง
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,124 @@
+/* General Body Styles */
+body {
+    background-color: #000;
+    color: #f0f0f0;
+    font-family: 'Noto Sans Thai', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+
+/* Main Product Container */
+.product-container {
+    width: 100%;
+    max-width: 960px;
+}
+
+/* Product Title */
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    // border-left: 5px solid #fff;
+    padding-left: 16px;
+    margin: 0 0 32px 0;
+}
+
+/* Main content flex container (image + details) */
+.main-content {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+/* Product Image */
+.product-image {
+  flex: 0 0 400px;
+  height: 400px; 
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+/* Product Details Box */
+.product-details {
+    flex: 1; /* Grow to fill available space */
+    border: 2px solid #121212;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 600px;
+    height: 250px;
+}
+
+.product-details p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+}
+
+.product-details p strong {
+     font-weight: bolder;
+    font-size: 20px;
+    margin-right: 8px;
+    color: #6F9A37;
+}
+
+/* "Add to Cart" Button */
+.add-to-cart-btn {
+    background-color: #6F9A37; /* Green background */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px; /* Pushes the button to the bottom */
+    align-self: flex-end; /* Aligns button to the right */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+}
+
+.add-to-cart-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Product Description Section */
+.product-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #ccc;
+}
+
+.product-description .description-title {
+    color: #6F9A37; /* Green title */
+    font-weight: 700;
+    margin-right: 8px;
+     font-size: 20px;
+}
+
+.product-description p {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+}

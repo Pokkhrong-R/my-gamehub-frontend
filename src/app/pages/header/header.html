@@ -1,0 +1,76 @@
+<mat-toolbar color="primary">
+  <span>GAMEHUB</span>
+  <span class="example-spacer"></span>
+
+<div class="set-search">
+    <section class="search">
+      <input
+        type="text"
+        #keyword
+        placeholder="ค้นหาเกมที่สนใจ..."
+        (input)="search(keyword.value)"
+        (focus)="showPopup = true"
+        (blur)="hidePopupWithDelay()" />
+      <button class="search-btn" (click)="search(keyword.value)">ค้นหา</button>
+
+  
+      <div class="search-popup" *ngIf="showPopup && filteredGames.length > 0">
+        <div
+          class="popup-item"
+          *ngFor="let game of filteredGames"
+          (mousedown)="goToGame(game.game_id)">
+          <img [src]="apiUrl + '/uploads/' + game.image" alt="{{game.image}}" class="popup-avatar">
+          <span>{{ game.name }}</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- ถ้ายังไม่ได้ login -->
+  <div class="set-menubar" *ngIf="!authService.isAuthenticated()">
+    <a routerLink="/homepage">หน้าหลัก</a>
+    <a routerLink="/registerpage">สมัครสมาชิก</a>
+    <a routerLink="/loginpage">เข้าสู่ระบบ</a>
+  </div>
+
+  <!-- ถ้า login แล้ว -->
+  <div class="set-menubar" *ngIf="authService.isAuthenticated() && authService.currentUser&& user">
+   
+    <ng-container *ngIf="authService.isUser">
+      <a routerLink="/user/home">หน้าหลัก</a>
+      <a [routerLink]="['/user/top-up', user.user_id]">เติมเงิน</a>
+      <a [routerLink]="['/user/cart', user.user_id]">รถเข็น</a>
+
+      <div class="frame-profile">
+        <a [routerLink]="['/user/profile', user.user_id]" class="set-circle">
+          <img
+            [src]="apiUrl + '/uploads/' + user.profile_image"
+            alt="{{ user.username}}"
+            class="set-image"
+          />
+        </a>
+      </div>
+
+      <!-- <button (click)="logout()" class="set-logout-btn">ออกจากระบบ</button> -->
+    </ng-container>
+
+    <!-- ✅ สำหรับ admin -->
+    <ng-container *ngIf="authService.isAdmin">
+      <a routerLink="/admin/home">หน้าหลัก</a>
+      <a routerLink="/admin/create-game">สร้างเกม</a>
+      <a routerLink="/admin/create-discount">สร้างส่วนลด</a>
+      <a routerLink="/admin/user-trans">ดูประวัติธุรกรรม</a>
+
+      <div class="frame-profile">
+        <a [routerLink]="['/admin/admin-profile', user.user_id]" class="set-circle">
+          <img
+            [src]="apiUrl + '/uploads/' + user.profile_image"
+            alt="{{ user.username }}"
+            class="set-image"
+          />
+        </a>
+      </div>
+
+      <!-- <button (click)="logout()" class="set-logout-btn">ออกจากระบบ</button> -->
+    </ng-container>
+  </div>
+</mat-toolbar>

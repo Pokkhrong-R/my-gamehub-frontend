@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="container">
+  <div class="set-showbar">
+    <img class="set-image" src="/assets/images/shortgame.avif" />
+  </div>
+
+  <div class="set-topsale">
+    <div class="set-topsaleText"><h1>|เกมขายดี</h1></div>
+    <div class="set-boxgameTopsale">
+      <!-- 1 -->
+      <div class="set-topgame">
+        <img class="set-gamecover" src="assets/images/roblox.webp" alt="roblox" />
+        <p class="set-GameName">ROBLOX</p>
+        <!-- <a [routerLink]="['/']">detail</a> -->
+      </div>
+      <!-- 2 -->
+      <div class="set-topgame">
+        <img class="set-gamecover" src="assets/images/freefire.jpg" alt="freefire" />
+        <p class="set-GameName">FREE FIRE</p>
+        <!-- <a [routerLink]="['/']">detail</a> -->
+      </div>
+      <!-- 3 -->
+      <div class="set-topgame">
+        <img class="set-gamecover" src="assets/images/rov.png" alt="rov" />
+        <p class="set-GameName">ROV</p>
+        <!-- <a [routerLink]="['/']">detail</a> -->
+      </div>
+      <!-- 4 -->
+      <div class="set-topgame">
+        <img class="set-gamecover" src="assets/images/COUNTER_STRIKE2.jpg" alt="COUNTER STRIKE 2" />
+        <p class="set-GameName">COUNTER STRIKE 2</p>
+        <!-- <a [routerLink]="['/']">detail</a> -->
+      </div>
+      <!-- 5 -->
+      <div class="set-topgame">
+        <img class="set-gamecover" src="assets/images/pubg.jpg" alt="PUBG" />
+        <p class="set-GameName">PUBG</p>
+        <!-- <a [routerLink]="['/']">detail</a> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="set-game-container">
+    <div><H1 class="set-gameTitle">| เกมของ GameHub</H1></div>
+
+    <div class="set-grid">
+        <div class="set-frameInside">
+        
+        <div class="set-frame" *ngFor="let value of games">
+          <!-- frame 1-->
+
+          <!-- <h3 class="set-text">Action</h3> -->
+
+        
+            <!--class="set-frameInside"-->
+            <a [routerLink]="['/user/detail-game', value.game_id]" style="text-decoration: none">
+              <div class="set-box">
+                <div class="set-detailImage">
+                  
+                  <img
+                    [src]="'http://localhost:3012/uploads/' + value.image"
+                    [alt]="value.image"
+                    class="set-gameImage"
+                  />
+                </div>
+                <h4>{{ value.name }}</h4>
+              </div>
+            </a>
+          </div>
+        </div>
+        </div>
+      
+      <!-- --------------------------------------------------------- -->
+    </div>
+    <!--grid-->
+  </div>
+
+
+<app-footer></app-footer>

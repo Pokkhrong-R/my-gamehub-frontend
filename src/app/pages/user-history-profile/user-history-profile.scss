@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+.container {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ส่วนหัวผู้ใช้ */
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1c1c1c;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.balance-box {
+  background: #2a2a2a;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* กล่องธุรกรรม */
+.transaction-box {
+  background: #1c1c1c;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.transaction-box h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* ปุ่ม filter */
+.filter-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-tabs button {
+  background: #2a2a2a;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.filter-tabs button.active {
+  background: #4CAF50;
+}
+
+/* รายการธุรกรรม */
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.transaction-item {
+  background: #2a2a2a;
+  padding: 12px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-item .game-title {
+  margin: 0;
+  font-weight: 500;
+}
+
+.transaction-item .date {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.amount {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.amount.minus {
+  color: #ff4c4c;
+}
+
+.amount.plus {
+  color: #4CAF50;
+}

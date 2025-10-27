@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<body>
+  <div class="product-container" *ngIf="games">
+    <h1>|{{ games.name }}</h1>
+
+    <div class="main-content">
+      <div class="product-image">
+        <img [src]="apiUrl + '/uploads/' + games.image" alt="{{ games.image }}" />
+      </div>
+
+      <div class="product-details">
+        <div class="product-details-column">
+          <p><strong>ราคา:</strong>{{ games.price }}</p>
+          <p><strong>ประเภท:</strong>{{ games.genres }}</p>
+          <p><strong>วันที่วางจำหน่าย:</strong>{{ games.sale_date | date : 'dd/MM/yyyy' }}</p>
+          <p><strong>อันดับเกมขายดี:</strong> {{ games.ranking_id }} 10</p>
+        </div>
+
+       
+          <button mat-icon-button class="set-more-btn"   [matMenuTriggerFor]="menu">
+               <mat-icon>more_vert</mat-icon>
+          </button>
+           <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="onEdit(games.game_id)">
+        <mat-icon>edit</mat-icon>
+        <span>แก้ไข</span>
+      </button>
+      <button mat-menu-item (click)="onDelete(games.game_id)">
+        <mat-icon>delete</mat-icon>
+        <span>ลบ</span>
+      </button>
+    </mat-menu>
+      </div>
+    </div>
+    <!-- คำอธิบายสินค้า -->
+    <div class="product-description">
+      <p>
+        <span class="description-title">รายละเอียด:</span>
+        {{ games.detail }}
+      </p>
+      <p>
+        <!---เนื้อหา-->
+      </p>
+    </div>
+  </div>
+</body>

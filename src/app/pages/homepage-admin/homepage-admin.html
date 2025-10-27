@@ -1,0 +1,21 @@
+<app-header></app-header>
+<body>
+  <div class="container">
+    <h2 class="section-title">|เกมของ GAMEHUB</h2>
+    
+    <div class="game-grid" >
+      <div  *ngFor="let game of gamesGet">
+            <a [routerLink]="['/admin/detail-game',game.game_id]" style="text-decoration: none; color: white;" >
+      <div class="game-card" >
+        
+        <img [src]="apiUrl+'/uploads/'+ formatImagePath(game.image)" alt="{{game.name}}">
+        <p>{{game.name}}</p>
+        
+      </div>
+      </a>
+        
+      </div>
+  
+    </div>
+  </div>
+</body>

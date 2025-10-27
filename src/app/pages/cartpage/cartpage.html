@@ -1,0 +1,58 @@
+<app-header></app-header>
+<link rel="stylesheet" href="cartpage.scss">
+<body>
+    <div class="cart-container">
+        <h1>รถเข็นของคุณ</h1>
+        
+        <!-- หน้ารวมสินค้า -->
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="assets/images/minecraft.jpg" alt="Minecraft Cover">
+                <div class="item-info">
+                    <p class="item-title">Minecraft: Java & Bedrock Edition</p>
+                </div>
+                <div class="item-actions">
+                    <div class="action-links">
+                        <a href="#" style="color: green;">เพิ่ม</a> | <a href="#" style="color: red;">ลบ</a>
+                    </div>
+                    <p class="item-price">฿750</p>
+                </div>
+            </div>
+
+            <div class="cart-item">
+                <img src="assets/images/Le-Mans-Ultimate.jpg" alt="Le Mans Ultimate Cover">
+                <div class="item-info">
+                    <p class="item-title">Le Mans Ultimate</p>
+                </div>
+                <div class="item-actions">
+                    <div class="action-links">
+                        <a href="#" style="color: green;">เพิ่ม</a> | <a href="#" style="color: red;">ลบ</a>
+                    </div>
+                    <p class="item-price">฿250</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- สรุปการสั่งซื้อ -->
+        <div class="cart-summary">
+            <div class="summary-line">
+                <span>รวมสินค้า(2)</span>
+                <span>฿ 1000</span>
+            </div>
+            <div class="summary-line">
+                <span>ใช้โค้ดส่วนลด</span>
+                <span>- ฿ 500</span>
+            </div>
+            <div class="summary-line total">
+                <span>รวมราคาหลังหักส่วนลด</span>
+                <span class="final-price">฿ 500</span>
+            </div>
+        </div>
+        <!-- ปุ่มซื้อ -->
+        <div class="checkout-section">
+            <button class="checkout-button">ดำเนินการชำระ</button>
+        </div>
+
+    </div>
+
+</body>

@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+}
+
+.card {
+  background: #1c1c1c;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+}
+
+.left {
+  flex: 1;
+  text-align: center;
+}
+
+.game-img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.btn-upload {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2ecc71;
+  color: #fff;
+  cursor: pointer;
+}
+
+.right {
+  flex: 2;
+}
+
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-inline {
+  display: flex;
+  gap: 15px;
+}
+
+input, select, textarea {
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+  margin-top: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-cancel, .btn-save {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background: #555;
+  color: #fff;
+}
+
+.btn-save {
+  background: #2ecc71;
+  color: #fff;
+}
