@@ -70,6 +70,7 @@ export class CreateDiscount {
       // 5. จัดการเมื่อสำเร็จ
       this.successMessage = "สร้างส่วนลดสำเร็จ!";
       console.log("Discount created successfully");
+      alert(this.successMessage); // แสดงข้อความสำเร็จ
 
       // 6. (แนะนำ) ล้างฟอร์มหลังสร้างสำเร็จ
       // this.discountCode = '';

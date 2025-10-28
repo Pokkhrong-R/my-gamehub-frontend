@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule, NgIf } from '@angular/common';
 import { Constants } from '../../config/costants';
 import { TranSactionService } from '../../services/api/trans';
+import { OrdersService } from '../../services/api/orders';
+import { AuthService } from '../../services/api/auth';
 
 @Component({
   selector: 'app-detail-gamepage',
@@ -18,14 +20,16 @@ export class DetailGamepage implements OnInit {
   games: GamesGetRes | null = null;
 
   apiUrl?: string;
-  gameId: number | null = null;
+  gameId: number |null = null;
+  userId: number |null=null;;
 
   constructor(
     private gameService: GameService,
     private activeRoute: ActivatedRoute,
     private constants: Constants,
-    private transService: TranSactionService,
-    private router:Router
+    private orderService: OrdersService,
+    private router:Router,
+    private authService:AuthService
   ) {}
 
   ngOnInit() {
@@ -33,28 +37,41 @@ export class DetailGamepage implements OnInit {
   }
   gameDetail() {
     try {
+      const idFromUrl = this.authService.getCurrentUserId();
+      if (idFromUrl) {
+        this.userId = Number(idFromUrl);
+
+      }
       this.activeRoute.paramMap.subscribe(async (params) => {
         this.gameId = Number(params.get('id'));
         const response = await this.gameService.getGameId(this.gameId);
         this.games = response;
-        console.log('gameId: ', this.gameId);
+      
+
       });
-    
+      console.log(`userId:${this.userId}`);
+      console.log(`gameId:${this.gameId}`);
+
+     
       this.apiUrl = this.constants.API_ENDPOINT;
     } catch (error) {}
   }
 
   async Order() {
-    if (this.gameId) {
+  
       try {
-        //เปลี่ยนไปลองเพิ่มออเดอร์
-        const response = await this.transService.createPayment(this.gameId);
+          if (this.gameId && this.userId) {
+      if(this.userId !=1){
+          await this.orderService.getAddCart(this.gameId);
         console.log('game data: ', this.games);
         alert(`ระบบทำการพิ่มเกมลงรถเข็นของท่านเรียบร้อยแล้ว!`);
-        this.router.navigate(['/user/home']);
+        this.router.navigate(['user/home']);
+      }
+    }
+      
       } catch (er) {
           alert('ไม่สามารถทำรายการได้ กรุณาลองใหม่อีกครั้ง!');
       }
-    }
+    
   }
 }

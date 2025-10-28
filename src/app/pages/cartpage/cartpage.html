@@ -1,58 +1,80 @@
 <app-header></app-header>
-<link rel="stylesheet" href="cartpage.scss">
 <body>
-    <div class="cart-container">
-        <h1>รถเข็นของคุณ</h1>
-        
-        <!-- หน้ารวมสินค้า -->
-        <div class="cart-items">
-            <div class="cart-item">
-                <img src="assets/images/minecraft.jpg" alt="Minecraft Cover">
-                <div class="item-info">
-                    <p class="item-title">Minecraft: Java & Bedrock Edition</p>
-                </div>
-                <div class="item-actions">
-                    <div class="action-links">
-                        <a href="#" style="color: green;">เพิ่ม</a> | <a href="#" style="color: red;">ลบ</a>
-                    </div>
-                    <p class="item-price">฿750</p>
-                </div>
-            </div>
+  <div class="cart-container">
+    <h1>รถเข็นของคุณ</h1>
 
-            <div class="cart-item">
-                <img src="assets/images/Le-Mans-Ultimate.jpg" alt="Le Mans Ultimate Cover">
-                <div class="item-info">
-                    <p class="item-title">Le Mans Ultimate</p>
-                </div>
-                <div class="item-actions">
-                    <div class="action-links">
-                        <a href="#" style="color: green;">เพิ่ม</a> | <a href="#" style="color: red;">ลบ</a>
-                    </div>
-                    <p class="item-price">฿250</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- สรุปการสั่งซื้อ -->
-        <div class="cart-summary">
-            <div class="summary-line">
-                <span>รวมสินค้า(2)</span>
-                <span>฿ 1000</span>
-            </div>
-            <div class="summary-line">
-                <span>ใช้โค้ดส่วนลด</span>
-                <span>- ฿ 500</span>
-            </div>
-            <div class="summary-line total">
-                <span>รวมราคาหลังหักส่วนลด</span>
-                <span class="final-price">฿ 500</span>
-            </div>
-        </div>
-        <!-- ปุ่มซื้อ -->
-        <div class="checkout-section">
-            <button class="checkout-button">ดำเนินการชำระ</button>
-        </div>
-
+    <div *ngIf="isLoading" style="text-align: center; padding: 2rem">
+      <p>กำลังโหลดข้อมูลตะกร้า...</p>
     </div>
 
+    <div *ngIf="errorMessage" style="color: red; text-align: center; padding: 1rem">
+      {{ errorMessage }}
+    </div>
+
+    <div *ngIf="!isLoading && !errorMessage">
+      <div *ngIf="cartItems.length === 0" style="text-align: center; padding: 2rem">
+        <p>ไม่มีสินค้าในตะกร้าของคุณ</p>
+      </div>
+
+      <div class="cart-items" *ngIf="cartItems.length > 0">
+        <div class="cart-item" *ngFor="let item of cartItems">
+          <img [src]="'assets/images/' + item.image" [alt]="item.name" />
+
+          <div class="item-info">
+            <p class="item-title">{{ item.name }}</p>
+          </div>
+
+          <div class="item-actions">
+            <div class="action-links">
+              <a (click)="removeItem(item.item_oid)" style="color: red; cursor: pointer">ลบ</a>
+            </div>
+            <p class="item-price">฿{{ item.price | number }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-summary" *ngIf="cartItems.length > 0">
+        <div class="discount-code-section">
+          <ng-container *ngIf="!appliedDiscount; else showAppliedCode">
+            <input
+              type="text"
+              placeholder="กรอกโค้ดส่วนลด"
+              [(ngModel)]="discountCodeInput"
+              [disabled]="isLoading"
+            />
+            <button (click)="applyDiscount()" [disabled]="isLoading">
+              {{ isLoading ? '...' : 'ใช้โค้ด' }}
+            </button>
+          </ng-container>
+
+          <ng-template #showAppliedCode>
+            <div class="applied-code">
+              <span
+                >ใช้โค้ด: <strong>{{ appliedDiscount?.discount_code }}</strong></span
+              >
+              <button (click)="cancelDiscount()" class="cancel-button" title="ยกเลิกโค้ด">X</button>
+            </div>
+          </ng-template>
+        </div>
+        <div class="summary-line">
+          <span>รวมสินค้า ({{ cartItems.length }})</span>
+          <span>฿ {{ totalPrice | number }}</span>
+        </div>
+
+        <div class="summary-line" *ngIf="discountAmount > 0">
+          <span>ใช้โค้ดส่วนลด</span>
+          <span style="color: green">- ฿ {{ discountAmount | number }}</span>
+        </div>
+
+        <div class="summary-line total">
+          <span>รวมราคาสุทธิ</span>
+          <span class="final-price">฿ {{ totalPrice - discountAmount | number }}</span>
+        </div>
+      </div>
+
+      <div class="checkout-section" *ngIf="cartItems.length > 0">
+        <button class="checkout-button">ดำเนินการชำระ</button>
+      </div>
+    </div>
+  </div>
 </body>

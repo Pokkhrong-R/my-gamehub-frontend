@@ -1,1 +1,35 @@
-<p>mygame-detail works!</p>
+<app-header></app-header>
+<body>
+  <div class="my-games-container">
+    <h1>คลังเกมของฉัน 🎮</h1>
+
+    <div *ngIf="isLoading" class="status-message">
+      <p>กำลังโหลดคลังเกมของคุณ...</p>
+    </div>
+
+    <div *ngIf="errorMessage" class="status-message error">
+      <p>{{ errorMessage }}</p>
+    </div>
+
+    <div *ngIf="!isLoading && !errorMessage">
+
+      <div *ngIf="myGames.length === 0" class="status-message">
+        <p>คุณยังไม่มีเกมที่ซื้อในคลัง</p>
+      </div>
+
+      <div class="game-grid" *ngIf="myGames.length > 0">
+        
+        <div class="game-card" *ngFor="let game of myGames">
+          <img [src]="'assets/images/' + game.image" [alt]="game.name">
+          <div class="game-info">
+            <h3>{{ game.name }}</h3>
+            <a [routerLink]="['/game-detail', game.game_id]" class="play-button">
+              ดูรายละเอียด
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>

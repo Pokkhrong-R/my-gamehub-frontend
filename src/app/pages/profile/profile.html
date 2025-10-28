@@ -65,7 +65,7 @@
     </div>
     <div class="set-column">
       <div class="set-gameBox" *ngFor="let mygame of games">
-         <div class="set-title-mygame"><p>| คลังเกมของฉัน <span>(2)</span></p></div>
+         <div class="set-title-mygame"><p>|<a [routerLink]="['/user/mygame-detail', mygame.game_id]">คลังเกมของฉัน</a> <span>(2)</span></p></div>
          <div class="set-grid">
 
 
